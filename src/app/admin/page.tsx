@@ -5,9 +5,9 @@ import { validateAdminSession, getStats } from '@/lib/db'
 export default async function AdminDashboardPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('admin_session')?.value
-  if (!token || !validateAdminSession(token)) redirect('/admin/login')
+  if (!token || !(await validateAdminSession(token))) redirect('/admin/login')
 
-  const stats = getStats()
+  const stats = await getStats()
 
   const funnel = [
     { label: 'Page Views', value: stats.totalVisits, icon: '👀' },

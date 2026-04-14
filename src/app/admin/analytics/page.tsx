@@ -5,9 +5,9 @@ import { validateAdminSession, getStats } from '@/lib/db'
 export default async function AdminAnalyticsPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('admin_session')?.value
-  if (!token || !validateAdminSession(token)) redirect('/admin/login')
+  if (!token || !(await validateAdminSession(token))) redirect('/admin/login')
 
-  const stats = getStats()
+  const stats = await getStats()
 
   return (
     <div className="p-6 md:p-8 pt-16 md:pt-6">

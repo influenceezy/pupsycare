@@ -6,7 +6,7 @@ import JsonLd from '@/components/JsonLd'
 
 export async function generateMetadata({ params }: PageProps<'/blog/[slug]'>): Promise<Metadata> {
   const { slug } = await params
-  const post = getBlogPost(slug)
+  const post = await getBlogPost(slug)
   if (!post) return {}
   return {
     title: post.title,
@@ -31,10 +31,10 @@ function formatDate(ts: number) {
 
 export default async function BlogPostPage({ params }: PageProps<'/blog/[slug]'>) {
   const { slug } = await params
-  const post = getBlogPost(slug)
+  const post = await getBlogPost(slug)
   if (!post || !post.published) notFound()
 
-  const allPosts = getBlogPosts(true).filter((p) => p.slug !== slug).slice(0, 3)
+  const allPosts = (await getBlogPosts(true)).filter((p) => p.slug !== slug).slice(0, 3)
 
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">

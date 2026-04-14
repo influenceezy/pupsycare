@@ -10,7 +10,7 @@ async function checkAuth() {
 
 export async function GET() {
   if (!(await checkAuth())) return Response.json({ error: 'Unauthorized' }, { status: 401 })
-  const posts = getBlogPosts()
+  const posts = await getBlogPosts()
   return Response.json(posts)
 }
 
@@ -24,6 +24,6 @@ export async function POST(request: NextRequest) {
     return Response.json({ error: 'title, slug and content are required' }, { status: 400 })
   }
 
-  const result = createBlogPost({ title, slug, content, excerpt, category, published: published ? 1 : 0 })
-  return Response.json({ ok: true, id: result.lastInsertRowid })
+  const result = await createBlogPost({ title, slug, content, excerpt, category, published: published ? 1 : 0 })
+  return Response.json({ ok: true, id: result.id })
 }

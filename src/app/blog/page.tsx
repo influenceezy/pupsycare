@@ -18,8 +18,8 @@ function formatDate(ts: number) {
   return new Date(ts).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
 }
 
-export default function BlogPage() {
-  const posts = getBlogPosts(true)
+export default async function BlogPage() {
+  const posts = await getBlogPosts(true)
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
