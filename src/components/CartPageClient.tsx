@@ -47,21 +47,26 @@ export default function CartPageClient() {
       <div className="grid md:grid-cols-3 gap-8">
         {/* Items */}
         <div className="md:col-span-2 space-y-4">
-          {items.map(({ product, quantity }) => (
-            <div key={product.id} className="bg-white rounded-2xl border border-border p-5 flex gap-4">
+          {items.map((item) => (
+            <div key={item.cartItemId} className="bg-white rounded-2xl border border-border p-5 flex gap-4">
               <div className="relative w-20 h-20 rounded-xl overflow-hidden shrink-0">
-                <Image src={product.image} alt={product.name} fill className="object-cover" />
+                <Image src={item.product.image} alt={item.product.name} fill className="object-cover" />
               </div>
               <div className="flex-1">
                 <div className="flex items-start justify-between">
                   <div>
-                    <Link href={`/product/${product.slug}`} className="font-semibold text-text hover:text-primary transition-colors">
-                      {product.name}
+                    <Link href={`/product/${item.product.slug}`} className="font-semibold text-text hover:text-primary transition-colors">
+                      {item.product.name}
                     </Link>
-                    <p className="text-xs text-muted">{product.flavor} · {product.format}</p>
+                    <p className="text-xs text-muted">{item.product.flavor} · {item.packLabel}</p>
+                    {item.isSubscription && (
+                      <span className="inline-block mt-1 bg-green-100 text-green-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        AUTO-DELIVER MONTHLY
+                      </span>
+                    )}
                   </div>
                   <button
-                    onClick={() => removeItem(product.id)}
+                    onClick={() => removeItem(item.cartItemId)}
                     className="text-muted hover:text-accent transition-colors p-1"
                     aria-label="Remove item"
                   >
@@ -73,20 +78,20 @@ export default function CartPageClient() {
                 <div className="flex items-center justify-between mt-3">
                   <div className="flex items-center gap-2 border border-border rounded-full px-2">
                     <button
-                      onClick={() => updateQuantity(product.id, quantity - 1)}
+                      onClick={() => updateQuantity(item.cartItemId, item.quantity - 1)}
                       className="w-7 h-7 flex items-center justify-center text-muted hover:text-text transition-colors"
                     >
                       −
                     </button>
-                    <span className="w-6 text-center text-sm font-semibold">{quantity}</span>
+                    <span className="w-6 text-center text-sm font-semibold">{item.quantity}</span>
                     <button
-                      onClick={() => updateQuantity(product.id, quantity + 1)}
+                      onClick={() => updateQuantity(item.cartItemId, item.quantity + 1)}
                       className="w-7 h-7 flex items-center justify-center text-muted hover:text-text transition-colors"
                     >
                       +
                     </button>
                   </div>
-                  <p className="font-semibold text-text">₹{product.price * quantity}</p>
+                  <p className="font-semibold text-text">₹{(item.packPrice * item.quantity).toLocaleString('en-IN')}</p>
                 </div>
               </div>
             </div>
@@ -97,10 +102,10 @@ export default function CartPageClient() {
         <div className="bg-cream rounded-2xl border border-border p-6 h-fit">
           <h2 className="font-bold text-text mb-4">Order Summary</h2>
           <div className="space-y-2 text-sm mb-4">
-            {items.map(({ product, quantity }) => (
-              <div key={product.id} className="flex justify-between text-muted">
-                <span>{product.name} × {quantity}</span>
-                <span>₹{product.price * quantity}</span>
+            {items.map((item) => (
+              <div key={item.cartItemId} className="flex justify-between text-muted">
+                <span>{item.product.name} · {item.packLabel} × {item.quantity}</span>
+                <span>₹{(item.packPrice * item.quantity).toLocaleString('en-IN')}</span>
               </div>
             ))}
           </div>

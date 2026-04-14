@@ -25,7 +25,8 @@ export default function StickyAddToCart({ product }: { product: Product }) {
 
   function handleBuyNow() {
     setLoading(true)
-    addItem(product)
+    const defaultPack = product.packs[0]
+    addItem(product, defaultPack.chews, defaultPack.price, false)
     router.push('/checkout')
   }
 

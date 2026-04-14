@@ -140,7 +140,7 @@ export default function CheckoutClient() {
           email: form.email,
           city: form.city,
           pincode: form.pincode,
-          products: items.map((i) => i.product.name),
+          products: items.map((i) => `${i.product.name} (${i.packLabel}${i.isSubscription ? ', Monthly' : ''})`),
           utm_source: utmSource,
           utm_medium: utmMedium,
           utm_campaign: utmCampaign,
@@ -287,10 +287,14 @@ export default function CheckoutClient() {
           <div className="bg-cream rounded-2xl border border-border p-6 h-fit">
             <h2 className="font-bold text-text mb-4">Order Summary</h2>
             <div className="space-y-3 mb-4">
-              {items.map(({ product, quantity }) => (
-                <div key={product.id} className="flex justify-between text-sm">
-                  <span className="text-muted">{product.name} × {quantity}</span>
-                  <span className="font-medium text-text">₹{product.price * quantity}</span>
+              {items.map((item) => (
+                <div key={item.cartItemId} className="flex justify-between text-sm">
+                  <span className="text-muted">
+                    {item.product.name} · {item.packLabel}
+                    {item.isSubscription && ' (Monthly)'}
+                    {item.quantity > 1 && ` × ${item.quantity}`}
+                  </span>
+                  <span className="font-medium text-text">₹{(item.packPrice * item.quantity).toLocaleString('en-IN')}</span>
                 </div>
               ))}
             </div>

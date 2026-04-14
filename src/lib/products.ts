@@ -1,3 +1,10 @@
+export interface Pack {
+  chews: number
+  price: number
+  mrp: number
+  badge?: string
+}
+
 export interface Product {
   id: string
   slug: string
@@ -5,6 +12,7 @@ export interface Product {
   tagline: string
   price: number
   mrp: number
+  packs: Pack[]
   flavor: string
   format: string
   forDogs: string
@@ -30,6 +38,11 @@ export const products: Product[] = [
     tagline: 'Move freely. Live fully.',
     price: 899,
     mrp: 1199,
+    packs: [
+      { chews: 30, price: 899, mrp: 1199 },
+      { chews: 60, price: 1699, mrp: 2399, badge: 'Most Popular' },
+      { chews: 90, price: 2349, mrp: 3399, badge: 'Best Value' },
+    ],
     flavor: 'Chicken',
     format: 'Soft Chews',
     forDogs: 'All sizes, especially 5+ years',
@@ -43,11 +56,11 @@ export const products: Product[] = [
       'https://images.unsplash.com/photo-1534361960057-19f4434a29d9?w=800&q=80',
     ],
     benefits: [
-      'Supports healthy cartilage and joint lubrication',
-      'Reduces stiffness — especially after rest',
-      'Helps dogs move with more ease and comfort',
-      'Anti-inflammatory support with Turmeric',
-      'Results typically seen within 3–4 weeks',
+      'Maintains bone strength and density',
+      'Reduces joint inflammation and pain',
+      'Slows arthritis onset with Chondroitin & Collagen',
+      'Helps relieve hip dysplasia symptoms',
+      'Supports cartilage rebuilding with Glucosamine & MSM',
       'Chicken flavour — dogs actually look forward to it',
     ],
     signs: [
@@ -78,10 +91,19 @@ export const products: Product[] = [
       { period: 'Week 5–6', result: 'Full effect — improved mobility, easier movement, and noticeably more enthusiasm for walks and play.' },
     ],
     ingredients: [
-      { name: 'Glucosamine HCl', benefit: 'Rebuilds cartilage and lubricates joints' },
-      { name: 'Chondroitin Sulfate', benefit: 'Slows cartilage breakdown, reduces pain' },
-      { name: 'MSM', benefit: 'Reduces inflammation and supports tissue repair' },
-      { name: 'Turmeric Extract', benefit: 'Natural anti-inflammatory, antioxidant support' },
+      { name: 'Collagen Peptide (Bovine)', benefit: 'Primary structural protein for cartilage and joint health' },
+      { name: 'Glucosamine HCl', benefit: 'Increases cartilage production and joint fluid' },
+      { name: 'Chondroitin Sulfate', benefit: 'Protects cartilage from breakdown, reduces pain' },
+      { name: 'MSM', benefit: 'Reduces joint pain and inflammation, supports tissue repair' },
+      { name: 'Fish Oil (EPA & DHA)', benefit: 'Reduces joint pain, tenderness and inflammation' },
+      { name: 'Calcium', benefit: 'Strengthens bones and supports skeletal structure' },
+      { name: 'Cissus Quadrangularis', benefit: 'Supports bone healing and recovery' },
+      { name: 'Hyaluronic Acid', benefit: 'Lubricates joints and retains moisture in connective tissue' },
+      { name: 'Green-Lipped Mussel Extract', benefit: 'Natural source of joint-supporting omega fatty acids' },
+      { name: 'Shallaki (Boswellia Serrata)', benefit: 'Reduces joint inflammation and stiffness' },
+      { name: 'Turmeric', benefit: 'Natural anti-inflammatory and antioxidant' },
+      { name: 'Astaxanthin', benefit: 'Powerful antioxidant that protects joint tissue' },
+      { name: 'Eggshell Powder', benefit: 'Natural source of calcium and collagen' },
     ],
     feedingGuide: [
       { weight: 'Under 10 kg', chews: '1 chew daily' },
@@ -123,7 +145,12 @@ export const products: Product[] = [
     tagline: 'The coat they deserve.',
     price: 799,
     mrp: 999,
-    flavor: 'Salmon',
+    packs: [
+      { chews: 30, price: 799, mrp: 999 },
+      { chews: 60, price: 1499, mrp: 1999, badge: 'Most Popular' },
+      { chews: 90, price: 2099, mrp: 2799, badge: 'Best Value' },
+    ],
+    flavor: 'Chicken',
     format: 'Soft Chews',
     forDogs: 'All dogs, especially during shedding season',
     problem: 'Excessive shedding, dull coat, dry or itchy skin',
@@ -135,12 +162,12 @@ export const products: Product[] = [
       'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800&q=80',
     ],
     benefits: [
-      'Visibly reduces shedding within 4–6 weeks',
-      'Adds shine and lustre to dull, brittle coats',
-      'Soothes dry, itchy, flaky skin from within',
-      'Strengthens hair follicles to reduce breakage',
-      'Salmon-flavoured — irresistible even to picky eaters',
-      'Works year-round, not just during shedding season',
+      'Maintains fur quality and coat shine',
+      'Reduces dry and itchy skin from within',
+      'Minimizes excessive shedding',
+      'Helps relieve inflamed and irritated skin',
+      'Strengthens hair follicles with Biotin & Collagen',
+      'Chicken flavour — irresistible even to picky eaters',
     ],
     signs: [
       'Hair everywhere — on clothes, sofa, and floor',
@@ -153,7 +180,7 @@ export const products: Product[] = [
     howItWorks: [
       {
         step: 'Give as a treat',
-        desc: 'Give 1–4 chews daily based on weight. The salmon flavour makes it a treat your dog looks forward to every morning.',
+        desc: 'Give 1–4 chews daily based on weight. The chicken flavour makes it a treat your dog looks forward to every morning.',
       },
       {
         step: 'Nourish from the inside',
@@ -165,15 +192,24 @@ export const products: Product[] = [
       },
     ],
     resultsTimeline: [
-      { period: 'Week 1–2', result: 'Nutrients begin nourishing skin cells and follicles. Itching and scratching may start to reduce.' },
-      { period: 'Week 3–4', result: 'Noticeably less shedding. Coat starts to feel softer, less brittle, and more manageable.' },
-      { period: 'Week 5–6', result: 'Full effect — coat visibly shinier, shedding under control, skin calm and itch-free.' },
+      { period: 'Month 1', result: 'Foundation-laying phase. Nutrients absorb and begin nourishing skin cells and follicles from within.' },
+      { period: 'Months 2–3', result: 'Noticeable reduction in shedding. Coat becomes softer and more manageable.' },
+      { period: 'Months 4–5', result: 'Increased coat shine and skin moisture. Itching and dryness visibly reduced.' },
+      { period: 'Month 6+', result: 'Consistent healthy fur and skin. Reduced chances of allergic reactions and flare-ups.' },
     ],
     ingredients: [
-      { name: 'Omega-3 (EPA & DHA)', benefit: 'Reduces skin inflammation, improves coat shine' },
-      { name: 'Omega-6', benefit: 'Supports skin barrier and moisture retention' },
-      { name: 'Biotin', benefit: 'Strengthens hair follicles and promotes growth' },
-      { name: 'Zinc', benefit: 'Reduces shedding, supports healthy skin cell renewal' },
+      { name: 'Collagen Peptide (Bovine)', benefit: 'Primary protein for skin, coat, and nail enhancement' },
+      { name: 'Fish Oil (EPA & DHA)', benefit: 'Promotes silky coat, reduces itching and flakiness' },
+      { name: 'Biotin', benefit: 'Adds shine and supports moisturized, healthy skin' },
+      { name: 'Zinc', benefit: 'Promotes skin health and cell growth' },
+      { name: 'Selenium', benefit: 'Reduces shedding and promotes healthier hair growth' },
+      { name: 'Hyaluronic Acid', benefit: 'Retains skin moisture, reduces dryness and itching' },
+      { name: 'Aloe Barbadensis Extract', benefit: 'Anti-bacterial, soothes irritated and inflamed skin' },
+      { name: 'Turmeric', benefit: 'Antioxidant supporting a healthy coat' },
+      { name: 'Astaxanthin', benefit: 'Combats free radicals, improves skin elasticity' },
+      { name: 'Flaxseed Powder', benefit: 'Reduces skin inflammation, supports hydration' },
+      { name: 'Hempseed Powder', benefit: 'Reduces shedding and maintains coat health' },
+      { name: 'Vitamins A, D & E', benefit: 'Support collagen formation for skin and hair development' },
     ],
     feedingGuide: [
       { weight: 'Under 10 kg', chews: '1 chew daily' },
@@ -192,15 +228,15 @@ export const products: Product[] = [
       },
       {
         q: 'Is it safe for puppies?',
-        a: 'Shine Coat is formulated for dogs 6 months and older. For puppies under 6 months, consult your vet before starting any supplement.',
+        a: 'Shine Coat is formulated for dogs 4 months (16 weeks) and older. For puppies under 4 months, consult your vet before starting any supplement.',
       },
       {
         q: 'Can I give it alongside other medications?',
         a: 'The ingredients are natural and generally safe alongside most medications. However, if your dog is on blood thinners or has a specific health condition, check with your vet first.',
       },
       {
-        q: 'What if my dog doesn\'t like salmon flavour?',
-        a: 'Most dogs love salmon, but if yours is hesitant, crumble one chew over their regular food for the first week. After a few days, they usually start eating it straight.',
+        q: 'What if my dog is hesitant about the chews?',
+        a: 'Most dogs take to the chicken-flavoured chews immediately, but if yours is hesitant, crumble one chew over their regular food for the first week. After a few days, they usually start eating it straight.',
       },
       {
         q: 'What does the 30-day guarantee mean?',

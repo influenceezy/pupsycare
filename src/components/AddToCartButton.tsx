@@ -17,7 +17,8 @@ export default function AddToCartButton({ product, className = '', trackEvent = 
   const router = useRouter()
 
   async function handleAdd() {
-    addItem(product)
+    const defaultPack = product.packs[0]
+    addItem(product, defaultPack.chews, defaultPack.price, false)
     setAdded(true)
     setTimeout(() => setAdded(false), 2000)
 
