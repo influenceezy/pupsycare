@@ -28,6 +28,38 @@ export default function ProductCTA({ product }: Props) {
     } else {
       setSelectedPack(pack)
     }
+    const price = isSubscription ? Math.round(pack.price * 0.9) : pack.price
+    fbq('trackCustom', 'PackSizeSelected', {
+      content_ids: [product.id],
+      content_name: product.name,
+      pack_size: pack.chews,
+      value: price,
+      currency: 'INR',
+    })
+  }
+
+  function handleSubscribeSelect() {
+    setIsSubscription(true)
+    fbq('trackCustom', 'SubscriptionTypeSelected', {
+      content_ids: [product.id],
+      content_name: product.name,
+      subscription_type: 'subscribe',
+      pack_size: selectedPack.chews,
+      value: Math.round(selectedPack.price * 0.9),
+      currency: 'INR',
+    })
+  }
+
+  function handleOneTimeSelect() {
+    setIsSubscription(false)
+    fbq('trackCustom', 'SubscriptionTypeSelected', {
+      content_ids: [product.id],
+      content_name: product.name,
+      subscription_type: 'one_time',
+      pack_size: selectedPack.chews,
+      value: selectedPack.price,
+      currency: 'INR',
+    })
   }
 
   function upgradeAndClose(pack: Pack) {
@@ -35,36 +67,36 @@ export default function ProductCTA({ product }: Props) {
     setShowUpsellPopup(false)
   }
 
-  async function handleBuyNow() {
+  function handleBuyNow() {
     setLoading(true)
     addItem(product, selectedPack.chews, finalPrice, isSubscription)
 
-    try {
-      const utmSource = sessionStorage.getItem('utm_source') ?? undefined
-      const sessionId = sessionStorage.getItem('pupsy_session') ?? undefined
-      await fetch('/api/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          event_type: 'buy_now',
-          product_id: product.id,
-          product_name: product.name,
-          pack_chews: selectedPack.chews,
-          is_subscription: isSubscription,
-          utm_source: utmSource,
-          session_id: sessionId,
-          device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
-        }),
-      })
+    // Fire Pixel immediately — never let the API call gate it
+    fbq('AddToCart', {
+      content_ids: [product.id],
+      content_name: product.name,
+      content_type: 'product',
+      value: finalPrice,
+      currency: 'INR',
+    })
 
-      fbq('AddToCart', {
-        content_ids: [product.id],
-        content_name: product.name,
-        content_type: 'product',
-        value: finalPrice,
-        currency: 'INR',
-      })
-    } catch {}
+    // Fire and forget — don't block navigation on the tracking call
+    const utmSource = sessionStorage.getItem('utm_source') ?? undefined
+    const sessionId = sessionStorage.getItem('pupsy_session') ?? undefined
+    fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        event_type: 'buy_now',
+        product_id: product.id,
+        product_name: product.name,
+        pack_chews: selectedPack.chews,
+        is_subscription: isSubscription,
+        utm_source: utmSource,
+        session_id: sessionId,
+        device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
+      }),
+    }).catch(() => {})
 
     router.push('/checkout')
   }
@@ -113,7 +145,7 @@ export default function ProductCTA({ product }: Props) {
         <div className="space-y-2">
           {/* Subscribe — prominent */}
           <button
-            onClick={() => setIsSubscription(true)}
+            onClick={handleSubscribeSelect}
             className={`relative w-full flex items-center gap-3 px-4 py-4 rounded-xl border-2 text-left transition-all ${
               isSubscription
                 ? 'border-primary bg-primary/5 shadow-sm'
@@ -136,7 +168,7 @@ export default function ProductCTA({ product }: Props) {
 
           {/* One-time — subdued */}
           <button
-            onClick={() => setIsSubscription(false)}
+            onClick={handleOneTimeSelect}
             className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl border text-left transition-all ${
               !isSubscription
                 ? 'border-border bg-white'
