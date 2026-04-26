@@ -20,9 +20,13 @@ export default function ProductCTA({ product }: Props) {
   const router = useRouter()
 
   function handlePackSelect(pack: Pack) {
-    setSelectedPack(pack)
-    if (pack.chews === 30) {
+    // Only show the upsell popup when the user is actively downgrading
+    // from a larger pack to the smallest one — never on the initial default selection.
+    if (pack.chews === 30 && selectedPack.chews > 30) {
+      setSelectedPack(pack)
       setShowUpsellPopup(true)
+    } else {
+      setSelectedPack(pack)
     }
   }
 

@@ -44,16 +44,6 @@ export default function MetaPixel() {
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init','${PIXEL_ID}');
       `}</Script>
-      <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          height="1"
-          width="1"
-          style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${PIXEL_ID}&ev=PageView&noscript=1`}
-          alt=""
-        />
-      </noscript>
       <Suspense fallback={null}>
         <PixelRouteTracker />
       </Suspense>
