@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 
     const waitlist_position = Math.floor(Math.random() * (89 - 23 + 1)) + 23
 
-    insertLead({
+    await insertLead({
       name,
       phone,
       email,
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     })
 
     // Also track the event
-    insertEvent({
+    await insertEvent({
       event_type: 'waitlist_signup',
       utm_source,
       utm_medium,

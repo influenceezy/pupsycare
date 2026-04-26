@@ -1,27 +1,22 @@
 import { NextRequest } from 'next/server'
 import { cookies } from 'next/headers'
-import bcrypt from 'bcryptjs'
 import { createAdminSession } from '@/lib/db'
 
-// Hashed version of "password" — change in production
-const ADMIN_EMAIL = 'admin@pupsycare.com'
-const ADMIN_PASSWORD_HASH = bcrypt.hashSync('password', 10)
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL!
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD!
 
 export async function POST(request: NextRequest) {
   try {
     const { email, password } = await request.json()
 
-    if (email !== ADMIN_EMAIL) {
-      return Response.json({ error: 'Invalid credentials' }, { status: 401 })
-    }
-
-    const valid = await bcrypt.compare(password, ADMIN_PASSWORD_HASH)
-    if (!valid) {
+    const emailMatch = email === ADMIN_EMAIL
+    const passwordMatch = typeof password === 'string' && password === ADMIN_PASSWORD
+    if (!emailMatch || !passwordMatch) {
       return Response.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 
     const token = Math.random().toString(36).slice(2) + Date.now().toString(36)
-    createAdminSession(token)
+    await createAdminSession(token)
 
     const cookieStore = await cookies()
     cookieStore.set('admin_session', token, {

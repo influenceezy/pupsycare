@@ -6,7 +6,7 @@ export async function POST() {
     const cookieStore = await cookies()
     const token = cookieStore.get('admin_session')?.value
     if (token) {
-      deleteAdminSession(token)
+      await deleteAdminSession(token)
     }
     cookieStore.delete('admin_session')
     return Response.json({ ok: true })

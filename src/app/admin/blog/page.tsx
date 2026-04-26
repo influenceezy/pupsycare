@@ -6,9 +6,9 @@ import BlogManager from '@/components/BlogManager'
 export default async function AdminBlogPage() {
   const cookieStore = await cookies()
   const token = cookieStore.get('admin_session')?.value
-  if (!token || !validateAdminSession(token)) redirect('/admin/login')
+  if (!token || !(await validateAdminSession(token))) redirect('/admin/login')
 
-  const posts = getBlogPosts()
+  const posts = await getBlogPosts()
 
   return (
     <div className="p-6 md:p-8 pt-16 md:pt-6">

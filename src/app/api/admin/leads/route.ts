@@ -5,7 +5,7 @@ import { validateAdminSession, getLeads, getLeadsCount, getAllLeadsForExport } f
 export async function GET(request: NextRequest) {
   const cookieStore = await cookies()
   const token = cookieStore.get('admin_session')?.value
-  if (!token || !validateAdminSession(token)) {
+  if (!token || !(await validateAdminSession(token))) {
     return Response.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   const exportCsv = searchParams.get('export') === 'csv'
 
   if (exportCsv) {
-    const leads = getAllLeadsForExport()
+    const leads = await getAllLeadsForExport()
     const rows = [
       ['ID', 'Date', 'Name', 'Phone', 'Email', 'City', 'Pincode', 'Products', 'UTM Source', 'UTM Campaign', 'Waitlist Position'],
       ...leads.map((l) => [
@@ -41,8 +41,8 @@ export async function GET(request: NextRequest) {
     })
   }
 
-  const leads = getLeads(search, page)
-  const total = getLeadsCount(search)
+  const leads = await getLeads(search, page)
+  const total = await getLeadsCount(search)
 
   return Response.json({ leads, total, page, pages: Math.ceil(total / 50) })
 }

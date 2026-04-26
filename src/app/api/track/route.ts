@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown'
 
-    insertEvent({
+    await insertEvent({
       event_type: body.event_type ?? 'unknown',
       page_url: body.page_url,
       product_id: body.product_id,
