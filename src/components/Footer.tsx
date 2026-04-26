@@ -12,9 +12,9 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Pupsy Care India"
-                width={110}
-                height={36}
-                className="h-9 w-auto brightness-0 invert"
+                width={320}
+                height={180}
+                className="h-16 w-auto brightness-0 invert"
               />
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">

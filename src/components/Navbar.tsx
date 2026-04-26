@@ -27,15 +27,15 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-warm-white/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between h-16 sm:h-16">
+        <div className="flex items-center justify-between h-[92px] sm:h-[92px]">
           {/* Logo */}
           <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
             <Image
               src="/logo.png"
               alt="Pupsy Care India — Safe, Happy, Loved"
-              width={160}
-              height={56}
-              className="h-12 w-auto sm:h-10"
+              width={320}
+              height={180}
+              className="h-20 w-auto"
               priority
             />
           </Link>

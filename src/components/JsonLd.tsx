@@ -43,7 +43,7 @@ export default function JsonLd(props: JsonLdProps) {
       name: 'Pupsy Care India',
       alternateName: 'Pupsy',
       url: 'https://pupsycare.com',
-      logo: 'https://pupsycare.com/logo.png',
+      logo: 'https://pupsycare.com/logo-icon.png',
       description:
         'Vet-formulated dog supplements made in India. Natural ingredients. Real results in 3–6 weeks.',
       slogan: 'Safe, Happy, Loved',
