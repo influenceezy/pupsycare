@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useCartStore } from './CartStore'
+import { fbq } from './MetaPixel'
 import type { Product } from '@/lib/products'
 
 interface Props {
@@ -37,6 +38,14 @@ export default function AddToCartButton({ product, className = '', trackEvent = 
           device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
         }),
       }).catch(() => {})
+
+      fbq('AddToCart', {
+        content_ids: [product.id],
+        content_name: product.name,
+        content_type: 'product',
+        value: defaultPack.price,
+        currency: 'INR',
+      })
     }
   }
 

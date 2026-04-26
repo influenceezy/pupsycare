@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import TrackPageView from '@/components/TrackPageView'
+import MetaPixel from '@/components/MetaPixel'
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -98,6 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${jakartaSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen flex flex-col bg-warm-white text-text antialiased">
+        <MetaPixel />
         <TrackPageView />
         <Navbar />
         <main className="flex-1">{children}</main>

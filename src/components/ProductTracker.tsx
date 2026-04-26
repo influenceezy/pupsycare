@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { fbq } from './MetaPixel'
 
 export default function ProductTracker({
   productId,
@@ -24,6 +25,13 @@ export default function ProductTracker({
         device: /Mobi|Android/i.test(navigator.userAgent) ? 'mobile' : 'desktop',
       }),
     }).catch(() => {})
+
+    fbq('ViewContent', {
+      content_ids: [productId],
+      content_name: productName,
+      content_type: 'product',
+      currency: 'INR',
+    })
   }, [productId, productName])
 
   return null
