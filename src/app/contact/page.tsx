@@ -38,7 +38,7 @@ export default function ContactPage() {
               </div>
             </div>
             <a
-              href="https://wa.me/919999999999"
+              href="https://wa.me/919983524747"
               target="_blank"
               rel="noopener noreferrer"
               className="block text-center bg-green-500 text-white px-4 py-2.5 rounded-full font-semibold hover:bg-green-600 transition-colors text-sm"

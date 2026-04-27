@@ -46,7 +46,7 @@ export default function ContactForm() {
             value={form.phone}
             onChange={(e) => setForm({ ...form, phone: e.target.value })}
             className="w-full border border-border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30"
-            placeholder="9876543210"
+            placeholder="9983524747"
           />
         </div>
       </div>

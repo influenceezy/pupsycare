@@ -219,7 +219,7 @@ export default function CheckoutClient() {
                       value={form.phone}
                       onChange={(e) => setForm({ ...form, phone: e.target.value })}
                       className={`w-full border rounded-lg px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-primary/30 ${errors.phone ? 'border-red-400' : 'border-border'}`}
-                      placeholder="9876543210"
+                      placeholder="9983524747"
                       maxLength={10}
                     />
                     {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
