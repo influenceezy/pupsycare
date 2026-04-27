@@ -7,15 +7,22 @@ import { useEffect, Suspense } from 'react'
 const PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function callFbq(event: string, params?: Record<string, unknown>) {
+function callFbq(action: string, eventOrParams?: string | Record<string, unknown>, params?: Record<string, unknown>) {
   if (typeof window !== 'undefined' && typeof (window as any).fbq === 'function') {
-    ;(window as any).fbq('track', event, params)
+    if (typeof eventOrParams === 'string') {
+      ;(window as any).fbq(action, eventOrParams, params)
+    } else {
+      ;(window as any).fbq('track', action, eventOrParams)
+    }
   }
 }
 
-/** Fire a Meta Pixel standard event from any client component. */
-export function fbq(event: string, params?: Record<string, unknown>) {
-  callFbq(event, params)
+/** Fire a Meta Pixel standard or custom event from any client component.
+ *  Standard: fbq('AddToCart', { ... })
+ *  Custom:   fbq('trackCustom', 'EventName', { ... })
+ */
+export function fbq(action: string, eventOrParams?: string | Record<string, unknown>, params?: Record<string, unknown>) {
+  callFbq(action, eventOrParams, params)
 }
 
 function PixelRouteTracker() {
