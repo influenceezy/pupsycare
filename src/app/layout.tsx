@@ -82,9 +82,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/logo-icon.png',
-    shortcut: '/logo-icon.png',
-    apple: '/logo-icon.png',
+    icon: '/pupsy-logo-icon.png',
+    shortcut: '/pupsy-logo-icon.png',
+    apple: '/pupsy-logo-icon.png',
   },
   verification: {
     // google: 'your-google-site-verification-token',

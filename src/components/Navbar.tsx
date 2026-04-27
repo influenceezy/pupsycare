@@ -31,7 +31,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center" onClick={() => setMenuOpen(false)}>
             <Image
-              src="/logo.png"
+              src="/pupsy-logo.png"
               alt="Pupsy Care India — Safe, Happy, Loved"
               width={320}
               height={180}

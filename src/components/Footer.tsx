@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-4">
               <Image
-                src="/logo.png"
+                src="/pupsy-logo.png"
                 alt="Pupsy Care India"
                 width={320}
                 height={180}
