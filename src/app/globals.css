@@ -87,3 +87,12 @@ body {
   outline: 2px solid #4d7c5f;
   outline-offset: 2px;
 }
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

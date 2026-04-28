@@ -28,7 +28,8 @@ export async function POST(request: NextRequest) {
     })
 
     return Response.json({ ok: true })
-  } catch {
+  } catch (err) {
+    console.error('[admin/auth]', err)
     return Response.json({ error: 'Server error' }, { status: 500 })
   }
 }

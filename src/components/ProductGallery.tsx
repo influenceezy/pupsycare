@@ -13,13 +13,13 @@ export default function ProductGallery({ images, name, badge }: Props) {
   const [active, setActive] = useState(0)
 
   return (
-    <div>
-      <div className="relative rounded-2xl overflow-hidden aspect-square mb-3 bg-cream">
+    <div className="w-full min-w-0">
+      <div className="relative rounded-2xl overflow-hidden aspect-square mb-3 bg-cream w-full">
         <Image
           src={images[active]}
           alt={name}
           fill
-          className="object-cover"
+          className="object-contain"
           priority
         />
         {badge && (
@@ -30,18 +30,18 @@ export default function ProductGallery({ images, name, badge }: Props) {
       </div>
 
       {images.length > 1 && (
-        <div className="grid grid-cols-3 gap-2">
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
           {images.map((img, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
-              className={`relative rounded-xl overflow-hidden aspect-square border-2 transition-all ${
+              className={`relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all bg-cream ${
                 active === i
                   ? 'border-primary shadow-sm'
                   : 'border-transparent opacity-55 hover:opacity-90 hover:border-border'
               }`}
             >
-              <Image src={img} alt={`${name} view ${i + 1}`} fill className="object-cover" />
+              <Image src={img} alt={`${name} view ${i + 1}`} fill className="object-contain" />
             </button>
           ))}
         </div>

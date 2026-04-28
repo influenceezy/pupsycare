@@ -98,11 +98,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${jakartaSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen flex flex-col bg-warm-white text-text antialiased">
+      <body className="min-h-screen flex flex-col bg-warm-white text-text antialiased overflow-x-hidden">
         <MetaPixel />
         <TrackPageView />
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-x-hidden">{children}</main>
         <Footer />
       </body>
     </html>

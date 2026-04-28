@@ -129,7 +129,9 @@ export default async function ProductPage({ params }: PageProps<'/product/[slug]
         {/* ── HERO ── */}
         <div className="grid md:grid-cols-2 gap-10 mb-14">
           {/* Gallery */}
-          <ProductGallery images={product.images} name={product.name} badge={product.badge} />
+          <div className="min-w-0">
+            <ProductGallery images={product.images} name={product.name} badge={product.badge} />
+          </div>
 
           {/* Info */}
           <div>
