@@ -15,7 +15,7 @@ interface FormData {
 }
 
 // Update this to your WhatsApp community invite link
-const WHATSAPP_COMMUNITY_URL = 'https://chat.whatsapp.com/YOUR_INVITE_LINK'
+const WHATSAPP_COMMUNITY_URL = 'https://chat.whatsapp.com/K5OZbkpNj1J4gOjjHanfaV'
 
 const STORAGE_KEY = 'pupsy_shipping'
 
