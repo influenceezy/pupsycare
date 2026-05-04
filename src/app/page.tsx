@@ -104,7 +104,7 @@ export default function HomePage() {
                   Learn More
                 </Link>
               </div>
-              <p className="text-xs text-muted mt-4">Starting at ₹799 · Free shipping above ₹999</p>
+              <p className="text-xs text-muted mt-4">Starting at ₹799 · Free shipping on all orders</p>
             </div>
             <div className="order-1 md:order-2 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]">

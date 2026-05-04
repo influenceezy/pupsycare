@@ -116,15 +116,12 @@ export default function CartPageClient() {
             </div>
             <div className="flex justify-between text-sm text-muted mb-1">
               <span>Shipping</span>
-              <span>{total >= 999 ? 'Free' : '₹99'}</span>
+              <span className="text-green-600 font-medium">Free</span>
             </div>
-            {total < 999 && (
-              <p className="text-xs text-primary mt-1">Add ₹{999 - total} more for free shipping!</p>
-            )}
           </div>
           <div className="flex justify-between font-bold text-text text-lg border-t border-border pt-4 mb-6">
             <span>Total</span>
-            <span>₹{total < 999 ? total + 99 : total}</span>
+            <span>₹{total}</span>
           </div>
           <Link
             href="/checkout"

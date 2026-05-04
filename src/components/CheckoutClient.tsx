@@ -116,7 +116,7 @@ export default function CheckoutClient() {
     const utmCampaign = sessionStorage.getItem('utm_campaign') ?? undefined
     const utmContent = sessionStorage.getItem('utm_content') ?? undefined
 
-    const orderTotal = total < 999 ? total + 99 : total
+    const orderTotal = total
     const pos = Math.floor(Math.random() * (89 - 23 + 1)) + 23
     setWaitlistPos(pos)
 
@@ -326,12 +326,12 @@ export default function CheckoutClient() {
             <div className="border-t border-border pt-3 space-y-1 mb-3">
               <div className="flex justify-between text-sm text-muted">
                 <span>Shipping</span>
-                <span>{total >= 999 ? 'Free' : '₹99'}</span>
+                <span className="text-green-600 font-medium">Free</span>
               </div>
             </div>
             <div className="flex justify-between font-bold text-text border-t border-border pt-3">
               <span>Total</span>
-              <span>₹{total < 999 ? total + 99 : total}</span>
+              <span>₹{total}</span>
             </div>
           </div>
         </div>
