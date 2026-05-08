@@ -275,8 +275,7 @@ export const products: Product[] = [
       '/products/gut-health/2.png',
       '/products/gut-health/3.png',
       '/products/gut-health/4.png',
-      '/products/gut-health/5.png',
-      '/products/gut-health/6.png',
+      '/products/gut-health/5.png'
     ],
     benefits: [
       'Fixes loose stools and irregular digestion',
