@@ -6,7 +6,7 @@ import AddToCartButton from '@/components/AddToCartButton'
 
 export const metadata: Metadata = {
   title: 'Shop',
-  description: 'Browse Pupsy Care\'s vet-formulated dog supplements — Happy Joints for mobility, Shine Coat for a lustrous coat.',
+  description: 'Browse Pupsy Care\'s vet-formulated dog supplements — Happy Joints for mobility, Shine Coat for a lustrous coat, and Probiotic & Gut Wellness for digestion and immunity.',
 }
 
 export default function ShopPage() {
@@ -19,7 +19,7 @@ export default function ShopPage() {
 
       {/* Filter pills */}
       <div className="flex flex-wrap gap-2 mb-8">
-        {['All', 'Joint Health', 'Skin & Coat'].map((f) => (
+        {['All', 'Joint Health', 'Skin & Coat', 'Gut Health'].map((f) => (
           <span key={f} className={`px-4 py-1.5 rounded-full text-sm font-medium border cursor-pointer transition-colors ${
             f === 'All' ? 'bg-primary text-white border-primary' : 'border-border text-muted hover:border-primary hover:text-primary'
           }`}>
@@ -88,7 +88,7 @@ export default function ShopPage() {
       {/* Trust section */}
       <div className="mt-16 bg-cream rounded-2xl p-8 border border-border text-center">
         <p className="text-2xl font-bold text-text mb-2">Not sure which to choose?</p>
-        <p className="text-muted mb-6">Many Indian pet parents use both — they target different health concerns and work well together.</p>
+        <p className="text-muted mb-6">Each formula targets a different system — and they&apos;re safe to use together.</p>
         <div className="grid sm:grid-cols-3 gap-4 text-sm">
           <div className="bg-white rounded-xl p-4 border border-border">
             <p className="font-semibold text-text mb-1">Joint pain, stiffness, slow movement</p>
@@ -101,9 +101,9 @@ export default function ShopPage() {
             <Link href="/product/shine-coat" className="text-primary font-semibold hover:underline text-xs">Shine Coat →</Link>
           </div>
           <div className="bg-white rounded-xl p-4 border border-border">
-            <p className="font-semibold text-text mb-1">Both concerns? Get both.</p>
-            <p className="text-muted text-xs mb-3">→ Safe to use together, complementary benefits</p>
-            <Link href="/contact" className="text-primary font-semibold hover:underline text-xs">Ask us →</Link>
+            <p className="font-semibold text-text mb-1">Loose stools, paw licking, gut issues</p>
+            <p className="text-muted text-xs mb-3">→ For dogs with sensitive stomachs or skin driven by gut imbalance</p>
+            <Link href="/product/gut-health" className="text-primary font-semibold hover:underline text-xs">Probiotic & Gut Wellness →</Link>
           </div>
         </div>
       </div>

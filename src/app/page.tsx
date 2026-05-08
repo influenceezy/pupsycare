@@ -56,8 +56,8 @@ const faqs = [
     a: 'Yes — formulated for all breeds and sizes. Adjust dose by weight. If your dog is on medication or has a health condition, check with your vet first.',
   },
   {
-    q: 'Can I give both products together?',
-    a: 'Absolutely. Many customers use both Happy Joints and Shine Coat together. They target different systems and ingredients are safe in combination.',
+    q: 'Can I use multiple products together?',
+    a: 'Absolutely. All three formulas target different systems — joints, coat, and gut — and are safe in combination. Many customers stack two or all three for complete daily wellness.',
   },
   {
     q: 'My dog is a picky eater. Will they eat this?',
@@ -151,17 +151,22 @@ export default function HomePage() {
           <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Is your dog struggling with...</h2>
           <p className="text-muted max-w-xl mx-auto">The most common concerns Indian pet parents bring to their vets — and nutrition is often at the root.</p>
         </div>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {[
             {
-              emoji: '🦴', title: 'Joint Pain & Stiffness', color: 'primary',
+              emoji: '🦴', title: 'Joint Pain & Stiffness',
               items: ['Slow to rise in the mornings', 'Reluctant to climb stairs or jump', 'Shorter, more hesitant walks', 'Occasional limping'],
               href: '/product/happy-joints', cta: 'See Happy Joints',
             },
             {
-              emoji: '✨', title: 'Excessive Shedding & Dull Coat', color: 'accent',
+              emoji: '✨', title: 'Excessive Shedding & Dull Coat',
               items: ['Fur everywhere, year-round', 'Dry, dull, or brittle coat', 'Itchy, flaky, or irritated skin', 'Constant scratching or licking'],
               href: '/product/shine-coat', cta: 'See Shine Coat',
+            },
+            {
+              emoji: '🌿', title: 'Loose Stools & Gut Discomfort',
+              items: ['Inconsistent or loose stools', 'Eating grass or scooting', 'Paw licking and skin irritation', 'Low energy after meals'],
+              href: '/product/gut-health', cta: 'See Probiotic & Gut Wellness',
             },
           ].map((card) => (
             <div key={card.title} className="bg-cream rounded-2xl p-8 border border-border">
@@ -189,7 +194,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">Our Products</h2>
-            <p className="text-muted">Two targeted formulas. One happy dog.</p>
+            <p className="text-muted">Three targeted formulas. One happy dog.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {products.map((product) => (

@@ -251,6 +251,108 @@ export const products: Product[] = [
       },
     ],
   },
+  {
+    id: 'gut-health',
+    slug: 'gut-health',
+    name: 'Probiotic & Gut Wellness',
+    tagline: 'Good gut, happy dog.',
+    price: 849,
+    mrp: 1099,
+    packs: [
+      { chews: 30, price: 849, mrp: 1099 },
+      { chews: 60, price: 1599, mrp: 2199, badge: 'Most Popular' },
+      { chews: 90, price: 2199, mrp: 2999, badge: 'Best Value' },
+    ],
+    flavor: 'Chicken',
+    format: 'Soft Chews',
+    forDogs: 'All dogs, especially sensitive stomachs',
+    problem: 'Loose stools, digestive discomfort, and gut-driven skin issues',
+    category: 'Gut Health',
+    badge: 'New',
+    image: '/products/gut-health/1.png',
+    images: [
+      '/products/gut-health/1.png',
+      '/products/gut-health/2.png',
+      '/products/gut-health/3.png',
+      '/products/gut-health/4.png',
+      '/products/gut-health/5.png',
+      '/products/gut-health/6.png',
+    ],
+    benefits: [
+      'Fixes loose stools and irregular digestion',
+      'Reduces paw licking and skin irritation caused by gut imbalance',
+      'Builds gut-driven immunity against seasonal allergies',
+      'Improves energy and coat appearance over time',
+      '14 probiotic strains + prebiotics + digestive enzymes',
+      'Chicken flavour — dogs treat it like a snack',
+    ],
+    signs: [
+      'Loose stools or inconsistent digestion',
+      'Eating grass or scooting frequently',
+      'Constant paw licking or scratching',
+      'Dull coat or flaky skin despite regular grooming',
+      'Low energy or sluggishness after meals',
+      'Seasonal allergies and recurring skin flare-ups',
+    ],
+    howItWorks: [
+      {
+        step: 'Give daily with food',
+        desc: 'One soft chew during or after a meal. The chicken flavour makes it effortless — just hand it over like a treat.',
+      },
+      {
+        step: 'Probiotics colonise the gut',
+        desc: '14 strains of live probiotics and prebiotics work together to balance gut flora and improve digestion from within.',
+      },
+      {
+        step: 'Health radiates outward',
+        desc: 'Better gut means calmer skin, firmer stools, stronger immunity — and a visibly happier, more energetic dog.',
+      },
+    ],
+    resultsTimeline: [
+      { period: 'Week 2', result: 'Stools become more consistent and firm. Digestive discomfort begins to ease.' },
+      { period: 'Week 4', result: 'Reduced paw licking and itching. Less skin irritation driven by gut inflammation.' },
+      { period: 'Week 6+', result: 'Improved coat condition and energy levels. Stronger immunity and fewer allergy flare-ups.' },
+    ],
+    ingredients: [
+      { name: '14-Strain Probiotic Blend', benefit: 'Balances gut flora, supports digestion and immunity' },
+      { name: 'Prebiotics (FOS + Inulin)', benefit: 'Feeds good bacteria, supports nutrient absorption and stool consistency' },
+      { name: 'Digestive Enzyme Blend', benefit: 'Improves nutrient utilisation and reduces bloating' },
+      { name: 'Chicory Root', benefit: 'Prebiotic fibre that promotes healthy bowel movement' },
+      { name: 'Papaya Powder', benefit: 'Supports gastrointestinal wellness and digestion' },
+      { name: 'Ginger', benefit: 'Anti-inflammatory, aids digestion and soothes the gut lining' },
+      { name: 'Pumpkin', benefit: 'Soothes the digestive tract, supports stool quality' },
+      { name: 'Fennel & Ajowan Seeds', benefit: 'Reduces bloating and flatulence, promotes gut comfort' },
+    ],
+    feedingGuide: [
+      { weight: 'All sizes', chews: '1 chew daily with or after food' },
+    ],
+    faqs: [
+      {
+        q: 'How quickly will I see results?',
+        a: 'Most dog parents notice firmer stools within 1–2 weeks of daily use. Reduced paw licking and skin irritation typically follow by week 4. For full gut-to-coat results, consistent use for 6+ weeks is recommended.',
+      },
+      {
+        q: 'Can I give this to a puppy?',
+        a: 'Probiotic & Gut Wellness is suitable for dogs 4 months (16 weeks) and older. For younger puppies, check with your vet first.',
+      },
+      {
+        q: 'My dog already eats probiotic yogurt. Is this different?',
+        a: 'Yes — significantly. Probiotic & Gut Wellness contains 14 scientifically selected probiotic strains, complemented by prebiotics and digestive enzymes, all at therapeutic doses formulated specifically for dogs. Yogurt alone doesn\'t come close.',
+      },
+      {
+        q: 'Can I use this alongside Happy Joints or Shine Coat?',
+        a: 'Absolutely. All three formulas target different systems and are safe in combination. Probiotic & Gut Wellness pairs especially well with Shine Coat, since gut health and coat health are closely linked.',
+      },
+      {
+        q: 'My dog has a very sensitive stomach. Is this safe to start?',
+        a: 'Yes — Probiotic & Gut Wellness is formulated for sensitive digestion. All ingredients are natural and gentle. If your dog is especially sensitive, start with half a chew for the first 3–4 days before moving to a full chew.',
+      },
+      {
+        q: 'Is it made in India?',
+        a: 'Yes. Made in GMP-certified facilities in India, with globally sourced, vet-validated ingredients. No artificial preservatives, MSG, or fillers.',
+      },
+    ],
+  },
 ]
 
 export function getProduct(slug: string): Product | undefined {
