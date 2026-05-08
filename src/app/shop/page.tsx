@@ -6,7 +6,7 @@ import AddToCartButton from '@/components/AddToCartButton'
 
 export const metadata: Metadata = {
   title: 'Shop',
-  description: 'Browse Pupsy Care\'s vet-formulated dog supplements — Happy Joints for mobility, Shine Coat for a lustrous coat, and Probiotic & Gut Wellness for digestion and immunity.',
+  description: 'Browse Pupsy Care\'s vet-formulated dog supplements — Happy Joints for mobility, Shine Coat for a lustrous coat, and Pupsy Happy Tummy Probiotic for digestion and immunity.',
 }
 
 export default function ShopPage() {
@@ -103,7 +103,7 @@ export default function ShopPage() {
           <div className="bg-white rounded-xl p-4 border border-border">
             <p className="font-semibold text-text mb-1">Loose stools, paw licking, gut issues</p>
             <p className="text-muted text-xs mb-3">→ For dogs with sensitive stomachs or skin driven by gut imbalance</p>
-            <Link href="/product/gut-health" className="text-primary font-semibold hover:underline text-xs">Probiotic & Gut Wellness →</Link>
+            <Link href="/product/gut-health" className="text-primary font-semibold hover:underline text-xs">Pupsy Happy Tummy Probiotic →</Link>
           </div>
         </div>
       </div>

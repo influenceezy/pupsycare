@@ -166,7 +166,7 @@ export default function HomePage() {
             {
               emoji: '🌿', title: 'Loose Stools & Gut Discomfort',
               items: ['Inconsistent or loose stools', 'Eating grass or scooting', 'Paw licking and skin irritation', 'Low energy after meals'],
-              href: '/product/gut-health', cta: 'See Probiotic & Gut Wellness',
+              href: '/product/gut-health', cta: 'See Pupsy Happy Tummy Probiotic',
             },
           ].map((card) => (
             <div key={card.title} className="bg-cream rounded-2xl p-8 border border-border">

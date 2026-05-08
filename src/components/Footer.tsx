@@ -46,7 +46,7 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><Link href="/product/happy-joints" className="text-gray-400 hover:text-white text-sm transition-colors">Happy Joints</Link></li>
               <li><Link href="/product/shine-coat" className="text-gray-400 hover:text-white text-sm transition-colors">Shine Coat</Link></li>
-              <li><Link href="/product/gut-health" className="text-gray-400 hover:text-white text-sm transition-colors">Probiotic & Gut Wellness</Link></li>
+              <li><Link href="/product/gut-health" className="text-gray-400 hover:text-white text-sm transition-colors">Pupsy Happy Tummy Probiotic</Link></li>
               <li><Link href="/shop" className="text-gray-400 hover:text-white text-sm transition-colors">All Products</Link></li>
               <li><Link href="/cart" className="text-gray-400 hover:text-white text-sm transition-colors">Your Cart</Link></li>
             </ul>

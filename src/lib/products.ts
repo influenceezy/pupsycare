@@ -254,7 +254,7 @@ export const products: Product[] = [
   {
     id: 'gut-health',
     slug: 'gut-health',
-    name: 'Probiotic & Gut Wellness',
+    name: 'Pupsy Happy Tummy Probiotic',
     tagline: 'Good gut, happy dog.',
     price: 849,
     mrp: 1099,
@@ -333,19 +333,19 @@ export const products: Product[] = [
       },
       {
         q: 'Can I give this to a puppy?',
-        a: 'Probiotic & Gut Wellness is suitable for dogs 4 months (16 weeks) and older. For younger puppies, check with your vet first.',
+        a: 'Pupsy Happy Tummy Probiotic is suitable for dogs 4 months (16 weeks) and older. For younger puppies, check with your vet first.',
       },
       {
         q: 'My dog already eats probiotic yogurt. Is this different?',
-        a: 'Yes — significantly. Probiotic & Gut Wellness contains 14 scientifically selected probiotic strains, complemented by prebiotics and digestive enzymes, all at therapeutic doses formulated specifically for dogs. Yogurt alone doesn\'t come close.',
+        a: 'Yes — significantly. Pupsy Happy Tummy Probiotic contains 14 scientifically selected probiotic strains, complemented by prebiotics and digestive enzymes, all at therapeutic doses formulated specifically for dogs. Yogurt alone doesn\'t come close.',
       },
       {
         q: 'Can I use this alongside Happy Joints or Shine Coat?',
-        a: 'Absolutely. All three formulas target different systems and are safe in combination. Probiotic & Gut Wellness pairs especially well with Shine Coat, since gut health and coat health are closely linked.',
+        a: 'Absolutely. All three formulas target different systems and are safe in combination. Pupsy Happy Tummy Probiotic pairs especially well with Shine Coat, since gut health and coat health are closely linked.',
       },
       {
         q: 'My dog has a very sensitive stomach. Is this safe to start?',
-        a: 'Yes — Probiotic & Gut Wellness is formulated for sensitive digestion. All ingredients are natural and gentle. If your dog is especially sensitive, start with half a chew for the first 3–4 days before moving to a full chew.',
+        a: 'Yes — Pupsy Happy Tummy Probiotic is formulated for sensitive digestion. All ingredients are natural and gentle. If your dog is especially sensitive, start with half a chew for the first 3–4 days before moving to a full chew.',
       },
       {
         q: 'Is it made in India?',
