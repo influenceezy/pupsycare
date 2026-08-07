@@ -117,6 +117,33 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+
+      {/* Company Information */}
+      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl font-bold text-text mb-6 text-center">Company Information</h2>
+        <div className="bg-cream rounded-2xl border border-border p-6 sm:p-8 grid sm:grid-cols-2 gap-6 text-sm">
+          <div>
+            <p className="font-semibold text-text mb-1">Trade Name</p>
+            <p className="text-muted">Pupsy Care</p>
+          </div>
+          <div>
+            <p className="font-semibold text-text mb-1">Legal Name</p>
+            <p className="text-muted">Shash Digital Services Private Limited</p>
+          </div>
+          <div>
+            <p className="font-semibold text-text mb-1">Registered Office Address</p>
+            <p className="text-muted">00 Maliwada, Tijara, Tizara, Alwar - 301411, Rajasthan, India</p>
+          </div>
+          <div>
+            <p className="font-semibold text-text mb-1">Contact Number</p>
+            <a href="tel:+919983524747" className="text-primary hover:underline">+91 99835 24747</a>
+          </div>
+          <div>
+            <p className="font-semibold text-text mb-1">Email</p>
+            <a href="mailto:hello@pupsycare.com" className="text-primary hover:underline">hello@pupsycare.com</a>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

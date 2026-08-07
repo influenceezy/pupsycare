@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-text text-white mt-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block mb-4">
@@ -58,7 +58,19 @@ export default function Footer() {
             <ul className="space-y-2.5">
               <li><Link href="/blog" className="text-gray-400 hover:text-white text-sm transition-colors">Blog</Link></li>
               <li><Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">About Us</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">Contact Us</Link></li>
+              <li><Link href="/faq" className="text-gray-400 hover:text-white text-sm transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-semibold text-sm mb-4 text-gray-200">Legal</h3>
+            <ul className="space-y-2.5">
+              <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms-conditions" className="text-gray-400 hover:text-white text-sm transition-colors">Terms &amp; Conditions</Link></li>
+              <li><Link href="/shipping-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Shipping Policy</Link></li>
+              <li><Link href="/refund-policy" className="text-gray-400 hover:text-white text-sm transition-colors">Refund Policy</Link></li>
             </ul>
           </div>
 
@@ -72,21 +84,39 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <a href="tel:+919983524747" className="hover:text-white transition-colors">
+                  +91 99835 24747
+                </a>
+              </li>
+              <li>
                 <a href="https://wa.me/919983524747" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
                   WhatsApp Us
                 </a>
-              </li>
-              <li className="text-gray-500 leading-relaxed text-xs mt-2">
-                123, 12th Cross, Indiranagar<br />
-                Bengaluru, Karnataka 560038
               </li>
               <li className="text-gray-500 text-xs">Mon–Sat, 10am–6pm IST</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© {new Date().getFullYear()} Pupsy Care India. All rights reserved.</p>
+        {/* Company Information */}
+        <div className="border-t border-white/10 mt-10 pt-8">
+          <h3 className="font-semibold text-sm mb-4 text-gray-200">Company Information</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-3 text-xs text-gray-500 leading-relaxed">
+            <p><span className="text-gray-400">Trade Name:</span><br />Pupsy Care</p>
+            <p><span className="text-gray-400">Legal Name:</span><br />Shash Digital Services Private Limited</p>
+            <p><span className="text-gray-400">Registered Address:</span><br />00 Maliwada, Tijara, Tizara, Alwar - 301411, Rajasthan, India</p>
+            <p>
+              <span className="text-gray-400">Phone:</span><br />
+              <a href="tel:+919983524747" className="hover:text-white transition-colors">+91 99835 24747</a>
+              <br /><br />
+              <span className="text-gray-400">Email:</span><br />
+              <a href="mailto:hello@pupsycare.com" className="hover:text-white transition-colors">hello@pupsycare.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 mt-8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>© {new Date().getFullYear()} Shash Digital Services Private Limited, trading as Pupsy Care. All rights reserved.</p>
           <div className="flex gap-6">
             <span>Made in India 🇮🇳</span>
             <span>Vet-formulated</span>

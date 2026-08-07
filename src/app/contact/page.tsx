@@ -60,8 +60,15 @@ export default function ContactPage() {
             <div className="flex items-start gap-3 text-sm">
               <span className="text-xl mt-0.5">📍</span>
               <div>
-                <p className="font-medium text-text">Address</p>
-                <p className="text-muted">123, 12th Cross, Indiranagar<br />Bengaluru, Karnataka 560038</p>
+                <p className="font-medium text-text">Registered Address</p>
+                <p className="text-muted">00 Maliwada, Tijara, Tizara, Alwar - 301411, Rajasthan, India</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 text-sm">
+              <span className="text-xl">📞</span>
+              <div>
+                <p className="font-medium text-text">Phone</p>
+                <a href="tel:+919983524747" className="text-primary hover:underline">+91 99835 24747</a>
               </div>
             </div>
             <div className="flex items-center gap-3 text-sm">
@@ -73,11 +80,22 @@ export default function ContactPage() {
             </div>
           </div>
 
+          {/* Map */}
+          <div className="rounded-2xl border border-border overflow-hidden">
+            <iframe
+              title="Pupsy Care registered address"
+              src="https://maps.google.com/maps?q=Tijara,+Alwar,+Rajasthan+301411&output=embed"
+              className="w-full h-56 border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+
           {/* FAQ CTA */}
           <div className="bg-primary/5 rounded-2xl border border-primary/20 p-5 text-center">
             <p className="text-sm font-semibold text-text mb-1">Looking for quick answers?</p>
             <p className="text-xs text-muted mb-3">Check our FAQ — most questions are answered there.</p>
-            <a href="/#faq" className="text-primary text-sm font-semibold hover:underline">View FAQ →</a>
+            <a href="/faq" className="text-primary text-sm font-semibold hover:underline">View FAQ →</a>
           </div>
         </div>
       </div>
